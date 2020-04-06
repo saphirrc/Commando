@@ -179,10 +179,10 @@ class Argument {
 
 			// Prompt the user for a new value
 			prompts.push(await msg.reply(stripIndents`
-				${empty ? this.prompt : valid ? valid : `You provided an invalid ${this.label}. Please try again.`}
+				${empty ? this.prompt : valid ? valid : `Vous avez donné un ${this.label} invalide.Veuillez réessayer.`}
 				${oneLine`
-					Respond with \`cancel\` to cancel the command.
-					${wait ? `The command will automatically be cancelled in ${this.wait} seconds.` : ''}
+					Répondez avec \`cancel\` pour annuler la commande.
+					${wait ? `La commande va être annulée dans  ${this.wait} secondes.` : ''}
 				`}
 			`));
 
@@ -265,21 +265,21 @@ class Argument {
 					const escaped = escapeMarkdown(val).replace(/@/g, '@\u200b');
 					prompts.push(await msg.reply(stripIndents`
 						${valid ? valid : oneLine`
-							You provided an invalid ${this.label},
-							"${escaped.length < 1850 ? escaped : '[too long to show]'}".
-							Please try again.
+							Vous avez donné un ${this.label} invalide,
+							"${escaped.length < 1850 ? escaped : '[trop long pour envoyer]'}".
+							Veuillez réessayer
 						`}
 						${oneLine`
-							Respond with \`cancel\` to cancel the command, or \`finish\` to finish entry up to this point.
-							${wait ? `The command will automatically be cancelled in ${this.wait} seconds.` : ''}
+							Répondez avec \`cancel\` pour annuler la commande ou \`finish\` pour finir l'entrée.
+							${wait ?` La commande va automatiquement être annulée dans ${this.wait} secondes.` : ''}
 						`}
 					`));
 				} else if(results.length === 0) {
 					prompts.push(await msg.reply(stripIndents`
 						${this.prompt}
 						${oneLine`
-							Respond with \`cancel\` to cancel the command, or \`finish\` to finish entry.
-							${wait ? `The command will automatically be cancelled in ${this.wait} seconds, unless you respond.` : ''}
+							Répondez avec \`cancel\` pour annuler la commande ou \`finish\` pour finir l'entrée.
+							${wait ? `La commande va être automatiquement annulée dans ${this.wait} si vous ne répondez pas.` : ''}
 						`}
 					`));
 				}
