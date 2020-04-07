@@ -8,7 +8,7 @@ module.exports = class EnableCommandCommand extends Command {
 			aliases: ['enable-command', 'cmd-on', 'command-on'],
 			group: 'commands',
 			memberName: 'enable',
-			description: 'Enables a command or command group.',
+			description: 'Active une commande un groupe de commandes.',
 			details: oneLine`
 				Seul les administrateurs peuvent utiliser cette commande. 
 			`,
@@ -35,9 +35,9 @@ module.exports = class EnableCommandCommand extends Command {
 		const group = args.cmdOrGrp.group;
 		if(args.cmdOrGrp.isEnabledIn(msg.guild, true)) {
 			return msg.reply(
-				`The \`${args.cmdOrGrp.name}\` ${args.cmdOrGrp.group ? 'command' : 'group'} is already enabled${
+				`Le 'commande' : 'groupe'\`${args.cmdOrGrp.name}\` ${args.cmdOrGrp.group ? 'command' : 'group'} est déjà activée${
 					group && !group.isEnabledIn(msg.guild) ?
-					`, but the \`${group.name}\` group is disabled, so it still can't be used` :
+					`, mais le groupe \`${group.name}\` est désactivé, la commande ne peut pas être utilisée` :
 					''
 				}.`
 			);
