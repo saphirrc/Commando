@@ -1,3 +1,4 @@
+//Ok!
 module.exports = {
 	Client: require('./client'),
 	CommandoClient: require('./client'),

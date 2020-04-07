@@ -1,3 +1,4 @@
+//Ok!
 const { escapeRegex } = require('./util');
 
 /** Handles parsing messages and running commands from them */

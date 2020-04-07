@@ -1,3 +1,4 @@
+//Ok!
 const discord = require('discord.js');
 const CommandoRegistry = require('./registry');
 const CommandDispatcher = require('./dispatcher');

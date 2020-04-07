@@ -1,3 +1,4 @@
+//Ok!
 const path = require('path');
 const discord = require('discord.js');
 const Command = require('./commands/base');
