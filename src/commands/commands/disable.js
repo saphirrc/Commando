@@ -8,10 +8,9 @@ module.exports = class DisableCommandCommand extends Command {
 			aliases: ['disable-command', 'cmd-off', 'command-off'],
 			group: 'commands',
 			memberName: 'disable',
-			description: 'Disables a command or command group.',
+			description: 'Désactiver une commande ou un groupe de commandes',
 			details: oneLine`
-				The argument must be the name/ID (partial or whole) of a command or command group.
-				Only administrators may use this command.
+				Seul les administrateurs peuvent utiliser cette commande. 
 			`,
 			examples: ['disable util', 'disable Utility', 'disable prefix'],
 			guarded: true,
@@ -40,10 +39,10 @@ module.exports = class DisableCommandCommand extends Command {
 		}
 		if(args.cmdOrGrp.guarded) {
 			return msg.reply(
-				`You cannot disable the \`${args.cmdOrGrp.name}\` ${args.cmdOrGrp.group ? 'command' : 'group'}.`
+				`Vous ne pouvez pas désactiver la commande \`${args.cmdOrGrp.name}\` ${args.cmdOrGrp.group ? 'commande': 'groupe'}.`
 			);
 		}
 		args.cmdOrGrp.setEnabledIn(msg.guild, false);
-		return msg.reply(`Disabled the \`${args.cmdOrGrp.name}\` ${args.cmdOrGrp.group ? 'command' : 'group'}.`);
+		return msg.reply(`commande désactivée:\`${args.cmdOrGrp.name}\` ${args.cmdOrGrp.group ? 'command' : 'group'}.`);
 	}
 };
