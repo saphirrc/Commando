@@ -1,3 +1,4 @@
+//Ok!
 /**
  * Has a message that can be considered user-friendly
  * @extends {Error}

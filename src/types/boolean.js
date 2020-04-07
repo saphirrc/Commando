@@ -1,3 +1,4 @@
+//Ok!
 const ArgumentType = require('./base');
 
 class BooleanArgumentType extends ArgumentType {

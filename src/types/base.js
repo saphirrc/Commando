@@ -1,3 +1,4 @@
+//Ok!
 /** A type for command arguments */
 class ArgumentType {
 	/**
