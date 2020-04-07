@@ -35,7 +35,7 @@ module.exports = class EnableCommandCommand extends Command {
 		const group = args.cmdOrGrp.group;
 		if(args.cmdOrGrp.isEnabledIn(msg.guild, true)) {
 			return msg.reply(
-				`La commande / le groupe\`${args.cmdOrGrp.name}\` ${args.cmdOrGrp.group ? 'command' : 'group'} est déjà activée${
+				`La commande / le groupe\`${args.cmdOrGrp.name}\` ${args.cmdOrGrp.group ? 'command' : 'group'} est déjà activé(e)${
 					group && !group.isEnabledIn(msg.guild) ?
 					`, mais le groupe \`${group.name}\` est désactivé, la commande ne peut pas être utilisée` :
 					''
@@ -44,7 +44,7 @@ module.exports = class EnableCommandCommand extends Command {
 		}
 		args.cmdOrGrp.setEnabledIn(msg.guild, true);
 		return msg.reply(
-			`La commande / le groupe \`${args.cmdOrGrp.name}\` ${group ? 'command' : 'group'}${
+			`La commande / le groupe \`${args.cmdOrGrp.name}\` ${group ? 'command' : 'group'} est déjà activé(e)${
 				group && !group.isEnabledIn(msg.guild) ?
 				`, mais le groupe\`${group.name}\` est désactivé, la commande ne peut pas être utilisée` :
 				''
