@@ -21,13 +21,13 @@ module.exports = class LoadCommandCommand extends Command {
 			args: [
 				{
 					key: 'command',
-					prompt: 'Which command would you like to load?',
+					prompt: 'Quelle commande voulez vous charger?',
 					validate: val => new Promise(resolve => {
 						if(!val) return resolve(false);
 						const split = val.split(':');
 						if(split.length !== 2) return resolve(false);
 						if(this.client.registry.findCommands(val).length > 0) {
-							return resolve('That command is already registered.');
+							return resolve('Cette commande est déjà chargée');
 						}
 						const cmdPath = this.client.registry.resolveCommandPath(split[0], split[1]);
 						fs.access(cmdPath, fs.constants.R_OK, err => err ? resolve(false) : resolve(true));

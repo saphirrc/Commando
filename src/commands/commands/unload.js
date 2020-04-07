@@ -20,7 +20,7 @@ module.exports = class UnloadCommandCommand extends Command {
 			args: [
 				{
 					key: 'command',
-					prompt: 'Which command would you like to unload?',
+					prompt: 'Quelle commande voulez vous décharger?',
 					type: 'command'
 				}
 			]

@@ -20,7 +20,7 @@ module.exports = class EnableCommandCommand extends Command {
 				{
 					key: 'cmdOrGrp',
 					label: 'command/group',
-					prompt: 'Which command or group would you like to enable?',
+					prompt: 'Quelle commande souhaitez vous activer?',
 					type: 'group|command'
 				}
 			]
