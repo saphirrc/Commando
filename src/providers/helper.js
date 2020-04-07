@@ -1,3 +1,4 @@
+//OK!
 /** Helper class to use {@link SettingProvider} methods for a specific Guild */
 class GuildSettingsHelper {
 	/**
