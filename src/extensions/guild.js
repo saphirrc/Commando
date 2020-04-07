@@ -1,3 +1,4 @@
+//Ok!
 const { Structures } = require('discord.js');
 const Command = require('../commands/base');
 const GuildSettingsHelper = require('../providers/helper');

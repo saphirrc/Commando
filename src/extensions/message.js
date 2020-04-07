@@ -1,3 +1,4 @@
+//OK!
 const { Structures, escapeMarkdown, splitMessage, resolveString } = require('discord.js');
 const { oneLine } = require('common-tags');
 const Command = require('../commands/base');
