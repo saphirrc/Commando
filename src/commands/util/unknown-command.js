@@ -14,12 +14,6 @@ module.exports = class UnknownCommandCommand extends Command {
 	}
 
 	run(msg) {
-		return msg.reply(
-			`Unknown command. Use ${msg.anyUsage(
-				'help',
-				msg.guild ? undefined : null,
-				msg.guild ? undefined : null
-			)} to view the command list.`
-		);
+		return
 	}
 };

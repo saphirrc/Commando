@@ -40,7 +40,10 @@ module.exports = class EnableCommandCommand extends Command {
 				color: "RANDOM"
 			}
 			*/
-			console.log(args.cmdOrGrp)
+			const grpembed = {
+			title: "Activation d'une commande",
+			description: `La commande / le groupe __${args.cmdOrGrp.name}__ est déjà activé`
+			}
 			return msg.reply(
 				`La commande / le groupe\`${args.cmdOrGrp.name}\` ${args.cmdOrGrp.group ? 'command' : 'group'} est déjà activé(e)${
 					group && !group.isEnabledIn(msg.guild) ?
