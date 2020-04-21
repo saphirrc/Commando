@@ -36,3 +36,5 @@ Additionally, it makes full use of ES2017's `async`/`await` functionality for cl
 ## Documentation
 [View the docs here.](https://discord.js.org/#/docs/commando)  
 See the [discord.js documentation](https://discord.js.org/#/docs) as well.
+## Traduction
+Woomy4680-exe
