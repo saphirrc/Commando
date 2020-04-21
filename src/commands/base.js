@@ -252,17 +252,17 @@ class Command {
 		if(ownerOverride && this.client.isOwner(message.author)) return true;
 
 		if(this.ownerOnly && (ownerOverride || !this.client.isOwner(message.author))) {
-			return `The \`${this.name}\` command can only be used by the bot owner.`;
+			return `La commande ${this.name} ne peut être utilisée que par l'owner du bot`;
 		}
 
 		if(message.channel.type === 'text' && this.userPermissions) {
 			const missing = message.channel.permissionsFor(message.author).missing(this.userPermissions);
 			if(missing.length > 0) {
 				if(missing.length === 1) {
-					return `The \`${this.name}\` command requires you to have the "${permissions[missing[0]]}" permission.`;
+					return `La command ${this.name} nécéssite la permission ${permissions[missing[0]]}`;
 				}
 				return oneLine`
-					The \`${this.name}\` command requires you to have the following permissions:
+					La commande \`${this.name}\` nécéssite les permissions suivantes:
 					${missing.map(perm => permissions[perm]).join(', ')}
 				`;
 			}
@@ -303,18 +303,18 @@ class Command {
 	 */
 	onBlock(message, reason, data) {
 		switch(reason) {
-			case 'guildOnly':
-				return message.reply(`The \`${this.name}\` command must be used in a server channel.`);
+			case 'guildOnly':nel
+				return message.reply(`La commande ${this.name} ne peut être utilisée que sur un serveur.`);
 			case 'nsfw':
-				return message.reply(`The \`${this.name}\` command can only be used in NSFW channels.`);
+				return message.reply(`La commande ${this.name} nécéssite d'être utilisée dans un canal NSFW`);
 			case 'permission': {
 				if(data.response) return message.reply(data.response);
-				return message.reply(`You do not have permission to use the \`${this.name}\` command.`);
+				return message.reply(`Vous n'avez pas la permission d'utiliser la commande ${this.name}`);
 			}
 			case 'clientPermissions': {
 				if(data.missing.length === 1) {
 					return message.reply(
-						`I need the "${permissions[data.missing[0]]}" permission for the \`${this.name}\` command to work.`
+						`Je n'ai pas les permissions nécessaires`
 					);
 				}
 				return message.reply(oneLine`
@@ -324,7 +324,7 @@ class Command {
 			}
 			case 'throttling': {
 				return message.reply(
-					`You may not use the \`${this.name}\` command again for another ${data.remaining.toFixed(1)} seconds.`
+					`Vous ne pouvez pas utiliser la commande ${this.name} avant ${data.remaining.toFixed(1)} secondes.`
 				);
 			}
 			default:
@@ -350,11 +350,11 @@ class Command {
 		}).join(owners.length > 2 ? ', ' : ' ') : '';
 
 		const invite = this.client.options.invite;
-		return message.reply(stripIndents`
-			An error occurred while running the command: \`${err.name}: ${err.message}\`
-			You shouldn't ever receive an error like this.
-			Please contact ${ownerList || 'the bot owner'}${invite ? ` in this server: ${invite}` : '.'}
-		`);
+		let errebd = {
+			title: `Il y a eu une erreur en exécutant la commande \` ${err.name}: ${err.name}\``,
+			description: `Une erreur comme celle-ci n'est pas normale, si vous souhaitez nous en faire part, c'est [ici]($invite)`
+		}
+		return message.channel.send({embed: errebd});
 	}
 
 	/**
