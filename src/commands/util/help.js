@@ -37,7 +37,7 @@ module.exports = class HelpCommand extends Command {
 				let help = stripIndents`
 					${oneLine`
 						__Command **${commands[0].name}**:__ ${commands[0].description}
-						${commands[0].guildOnly ? ' (Usable only in servers)' : ''}
+						${commands[0].guildOnly ? ' (Utilisable que sur serveur)' : ''}
 						${commands[0].nsfw ? ' (NSFW)' : ''}
 					`}
 
@@ -54,13 +54,13 @@ module.exports = class HelpCommand extends Command {
 				const messages = [];
 				try {
 					messages.push(await msg.direct(help));
-					if(msg.channel.type !== 'dm') messages.push(await msg.reply('Sent you a DM with information.'));
+					if(msg.channel.type !== 'dm') messages.push(await msg.reply('Infos en DM'));
 				} catch(err) {
-					messages.push(await msg.reply('Unable to send you the help DM. You probably have DMs disabled.'));
+					messages.push(await msg.reply('Impossible d\'envoyer le DM'));
 				}
 				return messages;
 			} else if(commands.length > 15) {
-				return msg.reply('Multiple commands found. Please be more specific.');
+				return msg.reply('Plusieurs commandes apparaisent, soyez plus spécifique ! ');
 			} else if(commands.length > 1) {
 				return msg.reply(disambiguation(commands, 'commands'));
 			} else {
