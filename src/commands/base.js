@@ -352,7 +352,7 @@ class Command {
 		const invite = this.client.options.invite;
 		let errebd = {
 			title: `Il y a eu une erreur en exécutant la commande `,
-			description: `\` ${err.name}: ${err.name}\` \n Une erreur comme celle-ci n'est pas normale, si vous souhaitez nous en faire part, c'est [ici]($invite)`
+			description: `\` ${err}\` \n Une erreur comme celle-ci n'est pas normale, si vous souhaitez nous en faire part, c'est [ici](${invite})`
 		}
 		return message.channel.send({embed: errebd});
 	}
