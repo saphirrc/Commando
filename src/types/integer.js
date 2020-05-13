@@ -9,13 +9,13 @@ class IntegerArgumentType extends ArgumentType {
 		const int = Number.parseInt(val);
 		if(Number.isNaN(int)) return false;
 		if(arg.oneOf && !arg.oneOf.includes(int)) {
-			return `Please enter one of the following options: ${arg.oneOf.map(opt => `\`${opt}\``).join(', ')}`;
+			return `Veuillez saisir l'une des options suivantes: ${arg.oneOf.map(opt => `\`${opt}\``).join(', ')}`;
 		}
 		if(arg.min !== null && typeof arg.min !== 'undefined' && int < arg.min) {
-			return `Please enter a number above or exactly ${arg.min}.`;
+			return `Veuillez saisir un nombre ci-dessus ou exactement ${arg.min}.`;
 		}
 		if(arg.max !== null && typeof arg.max !== 'undefined' && int > arg.max) {
-			return `Please enter a number below or exactly ${arg.max}.`;
+			return `Veuillez saisir un nombre ci-dessous ou exactement ${arg.max}.`;
 		}
 		return true;
 	}
@@ -24,5 +24,4 @@ class IntegerArgumentType extends ArgumentType {
 		return Number.parseInt(val);
 	}
 }
-
 module.exports = IntegerArgumentType;
